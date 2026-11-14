@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://daxm6lo83s46i"]
+
+[ext_resource type="Texture2D" uid="uid://cy6vpn1e700qk" path="res://Scenes/wmremove-transformed.png" id="1_ci6au"]
+
+[node name="Map" type="Node2D" unique_id=832485785]
+
+[node name="Background" type="TileMapLayer" parent="." unique_id=297616236]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1895885327]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(735, 735)
+repeat_times = 170
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1505462175]
+texture = ExtResource("1_ci6au")
