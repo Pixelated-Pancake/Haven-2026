@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rebound"
-run/main_scene="uid://bo4vvnnsus4se"
+run/main_scene="uid://dcyg8ynf3jjnn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
