@@ -5247,6 +5247,7 @@ repeat_size = Vector2(713, 735)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1505462175]
+position = Vector2(871, 661)
 texture = ExtResource("1_ci6au")
 
 [node name="Islands" type="TileMapLayer" parent="." unique_id=1248408496]
@@ -5254,4 +5255,4 @@ tile_map_data = PackedByteArray("AAB17y8BAQAoAAMAAAB17zABAQAoAAQAAAB17zEBAQAoAAU
 tile_set = SubResource("TileSet_n4fpb")
 
 [node name="Player" parent="." unique_id=1532181056 instance=ExtResource("4_myvm1")]
-position = Vector2(-23, -950)
+position = Vector2(858, 776)
