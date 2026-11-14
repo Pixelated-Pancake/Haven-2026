@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://crd58sdq225xb"]
+
+[ext_resource type="Texture2D" uid="uid://c5btp1xxl5s7a" path="res://assets/cursor.png" id="1_fsq4c"]
+
+[node name="cursor" type="Sprite2D" unique_id=1522536033]
+scale = Vector2(7, 7)
+texture = ExtResource("1_fsq4c")
