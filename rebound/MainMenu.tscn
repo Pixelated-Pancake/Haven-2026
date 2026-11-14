@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://duoqxwaqhus7m" path="res://MainMenu/PLAY Hover.png" id="2_h7a2f"]
 [ext_resource type="Texture2D" uid="uid://bxo5ci3emgt06" path="res://MainMenu/sTORY.png" id="3_qoqlk"]
 [ext_resource type="Texture2D" uid="uid://cxie5m6eknbg6" path="res://MainMenu/sTORY HOVER.png" id="4_iwfq2"]
+[ext_resource type="Script" uid="uid://qtvklfyrarf6" path="res://playbutton.gd" id="4_u7cqb"]
 [ext_resource type="Texture2D" uid="uid://ch4e4jjl532vb" path="res://MainMenu/qUIT.png" id="5_7r1g0"]
 [ext_resource type="Texture2D" uid="uid://cj4cbg4x2iv0w" path="res://MainMenu/qUIT hOVER.png" id="6_cqjrg"]
 
@@ -17,10 +18,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=927038694]
-layout_mode = 0
-offset_right = 1366.0
-offset_bottom = 768.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_cqjrg")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1950650436]
 layout_mode = 1
@@ -39,6 +44,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("1_eiy7p")
 texture_hover = ExtResource("2_h7a2f")
+script = ExtResource("4_u7cqb")
 
 [node name="Storyline" type="TextureButton" parent="VBoxContainer" unique_id=2070985303]
 custom_minimum_size = Vector2(250, 50)
@@ -58,5 +64,8 @@ texture_normal = ExtResource("5_7r1g0")
 texture_hover = ExtResource("6_cqjrg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1611882615]
+position = Vector2(386, 221)
 rotation = -0.43717384
-offset = Vector2(576, 324)
+offset = Vector2(574, 319)
+
+[connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]
