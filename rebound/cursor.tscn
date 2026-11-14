@@ -2,6 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://c5btp1xxl5s7a" path="res://assets/cursor.png" id="1_fsq4c"]
 
-[node name="cursor" type="Sprite2D" unique_id=1522536033]
+[sub_resource type="GDScript" id="GDScript_174ht"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+
+func _process(_delta: float) -> void:
+	global_position = get_global_mouse_position()
+"
+
+[node name="Cursor" type="Sprite2D" unique_id=1522536033]
 scale = Vector2(7, 7)
 texture = ExtResource("1_fsq4c")
+script = SubResource("GDScript_174ht")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dhghq6wd4iqyb" path="res://assets/Sprite-0001.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://b5dbemk5tqb2b" path="res://assets/Sprite-0003.png" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://crd58sdq225xb" path="res://cursor.tscn" id="3_epypp"]
 
 [sub_resource type="GDScript" id="GDScript_epypp"]
 script/source = "extends CharacterBody2D
@@ -83,3 +84,6 @@ shape = SubResource("SegmentShape2D_1vivr")
 position = Vector2(10, -11)
 scale = Vector2(3, 3)
 texture = ExtResource("2_0e48y")
+
+[node name="Cursor" parent="." unique_id=1522536033 instance=ExtResource("3_epypp")]
+position = Vector2(337.99997, -40.999996)
