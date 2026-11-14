@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bo4vvnnsus4se"]
+
+[ext_resource type="Texture2D" uid="uid://dhghq6wd4iqyb" path="res://assets/Sprite-0001.png" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://b5dbemk5tqb2b" path="res://assets/Sprite-0003.png" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://crd58sdq225xb" path="res://cursor.tscn" id="3_epypp"]
+
+[sub_resource type="GDScript" id="GDScript_epypp"]
+script/source = "extends CharacterBody2D
+
+const SPEED: float = 220.0
+const SPRINT_SPEED: float = 350.0
+const JUMP_VELOCITY: float = -400.0
+#const GRAVITY: float = 980.0
+
+const DOUBLE_TAP_TIME: float = 0.3
+
+var last_right_press: float = -1.0
+var is_sprinting: bool = false
+
+func _physics_process(delta: float) -> void:
+
+	# Gravity physics when gravity is acting upon the object it holds it down 
+	if not is_on_floor():
+		velocity.y += GRAVITY * delta
+
+	# moving left and right by getting the axis of the player
+	var direction := Input.get_axis(\"move_left\", \"move_right\")
+
+	# double tapping w for sprinting by using ticking function to boost the movement
+	if Input.is_action_just_pressed(\"move_right\"):
+		var current_time := Time.get_ticks_msec() / 1000.0
+
+		if current_time - last_right_press <= DOUBLE_TAP_TIME:
+			is_sprinting = true
+
+		last_right_press = current_time
+
+	# when the direction of the object changes the sprinting stops for better movement
+	if direction <= 0:
+		is_sprinting = false
+
+	var current_speed := SPRINT_SPEED if is_sprinting else SPEED
+
+	velocity.x = direction * current_speed
+
+	move_and_slide()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1vivr"]
+a = Vector2(-0.6649084, -2.666256)
+
+[node name="Node2D" type="Node2D" unique_id=1532181056]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=594472824]
+scale = Vector2(0.2, 0.2)
+script = SubResource("GDScript_epypp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1029244741]
+position = Vector2(122.49994, 18.499998)
+scale = Vector2(55.3125, 66.24)
+texture = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=491655233]
+position = Vector2(75, -10)
+scale = Vector2(25, 25)
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1078895341]
+position = Vector2(69.99999, 2.3841858e-07)
+limit_left = -50000000
+
+[node name="SpearCotroller" type="Node2D" parent="Player" unique_id=1814237905]
+
+[node name="Area2D" type="Area2D" parent="Player/SpearCotroller" unique_id=2040949972]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/SpearCotroller/Area2D" unique_id=1992710773]
+position = Vector2(319.99994, -179.99994)
+rotation = 0.7312928
+scale = Vector2(34.999992, 34.999992)
+shape = SubResource("SegmentShape2D_1vivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/SpearCotroller/Area2D" unique_id=2015643823]
+position = Vector2(274.99997, -134.99998)
+scale = Vector2(14.999997, 14.999997)
+texture = ExtResource("2_0e48y")
+
+[node name="Cursor" parent="." unique_id=1522536033 instance=ExtResource("3_epypp")]
+position = Vector2(337.99997, -40.999996)

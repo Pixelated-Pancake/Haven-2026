@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cisd4joxypi0y"]
+
+[ext_resource type="Script" uid="uid://ct0nsqqn0ibkp" path="res://player.gd" id="1_e80uo"]
+[ext_resource type="Texture2D" uid="uid://dhghq6wd4iqyb" path="res://assets/Sprite-0001.png" id="1_kne1u"]
+[ext_resource type="Texture2D" uid="uid://d3qwj3tpkn2vp" path="res://assets/Hearts.png" id="3_cxr5p"]
+[ext_resource type="Script" uid="uid://cnhmod1p053f0" path="res://spear_controller.gd" id="3_tdg3f"]
+[ext_resource type="Script" uid="uid://f7i54b3okjqi" path="res://spear.gd" id="4_tdg3f"]
+[ext_resource type="Texture2D" uid="uid://c5btp1xxl5s7a" path="res://assets/cursor.png" id="5_tdg3f"]
+[ext_resource type="Script" uid="uid://bufhufham2h88" path="res://cursor.gd" id="6_dtqjt"]
+[ext_resource type="Script" uid="uid://bcvjv84u4sexe" path="res://hearts_container.gd" id="7_5ncpa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4fpb"]
+radius = 7.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_drtbi"]
+a = Vector2(4, -5)
+b = Vector2(-1, 2)
+
+[node name="Node2D" type="Node2D" unique_id=65886256]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1200970445]
+script = ExtResource("1_e80uo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=536635970]
+texture = ExtResource("1_kne1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1381225667]
+shape = SubResource("CircleShape2D_n4fpb")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=516697658]
+
+[node name="SpearController" type="Area2D" parent="Player" unique_id=1504886559]
+script = ExtResource("3_tdg3f")
+
+[node name="Spear" type="Sprite2D" parent="Player/SpearController" unique_id=1262799376]
+script = ExtResource("4_tdg3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/SpearController" unique_id=1098201332]
+shape = SubResource("SegmentShape2D_drtbi")
+
+[node name="Cursor" type="Sprite2D" parent="." unique_id=64434468]
+texture = ExtResource("5_tdg3f")
+script = ExtResource("6_dtqjt")
+
+[node name="HeartsContainer" type="GridContainer" parent="." unique_id=1390991535]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_5ncpa")
+
+[node name="Heart1" type="TextureRect" parent="HeartsContainer" unique_id=818039693]
+layout_mode = 2
+texture = ExtResource("3_cxr5p")
+
+[node name="Heart2" type="TextureRect" parent="HeartsContainer" unique_id=400610099]
+layout_mode = 2
+texture = ExtResource("3_cxr5p")
+
+[node name="Heart3" type="TextureRect" parent="HeartsContainer" unique_id=190787392]
+layout_mode = 2
+texture = ExtResource("3_cxr5p")

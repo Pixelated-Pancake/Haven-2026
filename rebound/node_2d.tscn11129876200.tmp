@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dhghq6wd4iqyb" path="res://assets/Sprite-0001.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://b5dbemk5tqb2b" path="res://assets/Sprite-0003.png" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://f7i54b3okjqi" path="res://spear.gd" id="2_q6r6c"]
 [ext_resource type="PackedScene" uid="uid://crd58sdq225xb" path="res://cursor.tscn" id="3_epypp"]
-[ext_resource type="PackedScene" uid="uid://daxm6lo83s46i" path="res://Scenes/map.tscn" id="4_0hol4"]
 
 [sub_resource type="GDScript" id="GDScript_epypp"]
 script/source = "extends CharacterBody2D
@@ -12,7 +10,7 @@ script/source = "extends CharacterBody2D
 const SPEED: float = 220.0
 const SPRINT_SPEED: float = 350.0
 const JUMP_VELOCITY: float = -400.0
-const GRAVITY: float = 980.0
+#const GRAVITY: float = 980.0
 
 const DOUBLE_TAP_TIME: float = 0.3
 
@@ -73,23 +71,20 @@ shape = SubResource("CircleShape2D_1vivr")
 position = Vector2(69.99999, 2.3841858e-07)
 limit_left = -50000000
 
-[node name="Spear" type="RigidBody2D" parent="." unique_id=899133860]
-position = Vector2(45, -16)
-script = ExtResource("2_q6r6c")
+[node name="SpearCotroller" type="Node2D" parent="Player" unique_id=1814237905]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spear" unique_id=1992710773]
-position = Vector2(19, -19.999998)
-rotation = 0.7312929
-scale = Vector2(7, 7)
+[node name="Spear" type="Area2D" parent="Player/SpearCotroller" unique_id=2040949972]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/SpearCotroller/Spear" unique_id=1992710773]
+position = Vector2(319.99994, -179.99994)
+rotation = 0.7312928
+scale = Vector2(34.999992, 34.999992)
 shape = SubResource("SegmentShape2D_1vivr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Spear" unique_id=2015643823]
-position = Vector2(10, -11)
-scale = Vector2(3, 3)
+[node name="Sprite2D" type="Sprite2D" parent="Player/SpearCotroller/Spear" unique_id=2015643823]
+position = Vector2(274.99997, -134.99998)
+scale = Vector2(14.999997, 14.999997)
 texture = ExtResource("2_0e48y")
 
 [node name="Cursor" parent="." unique_id=1522536033 instance=ExtResource("3_epypp")]
 position = Vector2(337.99997, -40.999996)
-
-[node name="Map" parent="." unique_id=832485785 instance=ExtResource("4_0hol4")]
-scale = Vector2(5, 5)
