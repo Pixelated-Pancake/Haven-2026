@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://df61csr6fphix"]
+
+[ext_resource type="Texture2D" uid="uid://b0us72jmy0on3" path="res://assets/Health potion.png" id="1_bcips"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+
+[node name="Potion" type="Area2D" unique_id=212690732]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1111995474]
+position = Vector2(8, 8.000008)
+scale = Vector2(4.3421054, 3.7631583)
+texture = ExtResource("1_bcips")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=494799325]
+position = Vector2(13.999999, 5.9999995)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_1vivr")
