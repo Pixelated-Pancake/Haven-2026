@@ -1,12 +1,40 @@
 [gd_scene format=3 uid="uid://bo4vvnnsus4se"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8vrlf"]
+[ext_resource type="Script" uid="uid://blxg5qkll680j" path="res://character_body_2d.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://b4m0cwok3egxu" path="res://player.png" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://doojmocuvx77" path="res://icon.svg" id="3_epypp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v5gy4"]
+distance = -37.0
 
 [node name="Node2D" type="Node2D" unique_id=1532181056]
+position = Vector2(4251, -1053)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=427410735]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=594472824]
+script = ExtResource("1_0e48y")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=522918427]
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1029244741]
+texture = ExtResource("2_epypp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=107487029]
-shape = SubResource("CircleShape2D_8vrlf")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=491655233]
+position = Vector2(-18, 6)
+scale = Vector2(35, 35)
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1078895341]
+position = Vector2(28, 105)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1290250575]
+position = Vector2(35, -765)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=173670904]
+position = Vector2(102, 118)
+scale = Vector2(50, 50)
+shape = SubResource("WorldBoundaryShape2D_v5gy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1551523901]
+position = Vector2(89.74986, 1955.5)
+scale = Vector2(65.97266, 3.2421875)
+texture = ExtResource("3_epypp")
