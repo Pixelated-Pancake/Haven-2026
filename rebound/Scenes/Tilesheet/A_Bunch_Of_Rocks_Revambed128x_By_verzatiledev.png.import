@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f768mxum8jjm"
-path="res://.godot/imported/tiles_sheet@2.png-b7d140cecb0b36201e113a4a74adccee.ctex"
+uid="uid://wly7m1hub3gj"
+path="res://.godot/imported/A_Bunch_Of_Rocks_Revambed128x_By_verzatiledev.png-fdc4318dd4b22eff702b8c22c991a505.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Tilesheet/tiles_sheet@2.png"
-dest_files=["res://.godot/imported/tiles_sheet@2.png-b7d140cecb0b36201e113a4a74adccee.ctex"]
+source_file="res://Scenes/Tilesheet/A_Bunch_Of_Rocks_Revambed128x_By_verzatiledev.png"
+dest_files=["res://.godot/imported/A_Bunch_Of_Rocks_Revambed128x_By_verzatiledev.png-fdc4318dd4b22eff702b8c22c991a505.ctex"]
 
 [params]
 
