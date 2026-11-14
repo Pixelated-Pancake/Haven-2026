@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://qtvklfyrarf6" path="res://playbutton.gd" id="4_u7cqb"]
 [ext_resource type="Texture2D" uid="uid://ch4e4jjl532vb" path="res://MainMenu/qUIT.png" id="5_7r1g0"]
 [ext_resource type="Texture2D" uid="uid://cj4cbg4x2iv0w" path="res://MainMenu/qUIT hOVER.png" id="6_cqjrg"]
+[ext_resource type="Texture2D" uid="uid://dr6153rn2hnll" path="res://MainMenu/SUGARCANE.png" id="9_u7cqb"]
+[ext_resource type="Texture2D" uid="uid://caues6x2satix" path="res://MainMenu/KN-removebg-preview.png" id="10_afec1"]
 
 [node name="Main Menu" type="Control" unique_id=568913381]
 layout_mode = 3
@@ -68,4 +70,26 @@ position = Vector2(386, 221)
 rotation = -0.43717384
 offset = Vector2(574, 319)
 
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1222167643]
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 0
+offset_left = 1168.0
+offset_top = 240.0
+offset_right = 1668.0
+offset_bottom = 799.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_u7cqb")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1293532740]
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 240.0
+offset_right = 506.0
+offset_bottom = 799.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_afec1")
+flip_h = true
+
 [connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="VBoxContainer/Play" method="_on_quit_pressed"]
